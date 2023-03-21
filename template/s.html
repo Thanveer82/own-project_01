@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Page</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+          }
+          
+          .container {
+            width: 400px;
+            height: 500px;
+            margin: auto;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+          }
+          
+          form {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          }
+          
+          h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+          }
+          
+          .input-field {
+            margin-bottom: 20px;
+          }
+          
+          input[type="text"],
+          input[type="email"],
+          input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          }
+          
+          button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+          }
+          
+          button[type="submit"]:hover {
+            background-color: #555;
+          }
+          
+          .error-message {
+            color: red;
+            font-size: 0.8rem;
+            margin-top: 5px;
+          }
+          
+    </style>
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <h2>Register</h2>
+        <div class="input-field">
+          <input type="text" placeholder="Full Name" required>
+        </div>
+        <div class="input-field">
+          <input type="email" placeholder="Email Address" required>
+        </div>
+        <div class="input-field">
+          <input type="password" placeholder="Password" required>
+        </div>
+        <div class="input-field">
+          <input type="password" placeholder="Confirm Password" required>
+        </div>
+        <div class="button">
+          <button type="submit"> <a href="{% url 'fo' %}"></a> signin</button>
+        </div>
+      </form>
+    </div>
+    <script>
+        
+var form = document.querySelector('form');
+form.addEventListener('submit', function(event) {
+  var fullName = form.querySelector('input[type="text"]').value;
+  var email = form.querySelector('input[type="email"]').value;
+  var password = form.querySelector('input[type="password"]').value;
+  var confirmPassword = form.querySelectorAll('input[type="password"]')[1].value;
+  
+  if (!fullName || !email || !password || !confirmPassword) {
+    event.preventDefault();
+    var errorMessage = document.createElement('p');
+    errorMessage.className = 'error-message';
+    errorMessage.textContent = 'Please fill out all fields.';
+    form.appendChild(errorMessage);
+  }
+  
+  if (password !== confirmPassword) {
+    event.preventDefault();
+    var errorMessage = document.createElement('p');
+    errorMessage.className = 'error-message';
+    errorMessage.textContent = 'Passwords do not match.';
+    form.appendChild(errorMessage);
+  }
+});
+
+    </script>
+  </body>
+</html>

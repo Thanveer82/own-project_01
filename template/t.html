@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <style>
+        body {
+            background-color:rgb(234, 95, 95);
+            font-family: Arial, sans-serif;
+          }
+          
+          .container {
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+          }
+          
+          form {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          }
+          
+          h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+          }
+          
+          .input-field {
+            margin-bottom: 20px;
+          }
+          
+          input[type="text"],
+          input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          }
+          
+          button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+          }
+          
+          button[type="submit"]:hover {
+            background-color: #290f0f;}
+          
+          
+    </style>
+  </head>
+  <body>
+    <h1> </h1>
+    <div class="container">
+      <form>
+        <h2>Login</h2>
+        <div class="input-field">
+          <input type="text" placeholder="Username">
+        </div>
+        <div class="input-field">
+          <input type="password" placeholder="Password">
+        </div>
+        <div class="button">
+          <button> 
+            <a href="{% url 'fo' %}">.</a>login
+          </button>
+        </div>
+      </form>
+    </div>
+    <script>
+        var container = document.querySelector('.container');
+        container.style.top = (window.innerHeight - container.offsetHeight) / 2 + 'px';
+        </script>
+  </body>
+</html>
